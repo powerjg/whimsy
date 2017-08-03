@@ -144,7 +144,7 @@ class _Config(object):
            return getattr(super(_Config, self), attr)
         else:
             if not self._configured:
-                self._parse_commandline_args()
+                #self._parse_commandline_args()
                 self._parse_config_file()
                 self._run_post_processors()
                 self._configured = True
