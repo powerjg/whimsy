@@ -10,24 +10,23 @@ easier, but I would prefer we keep consistency and not port many of the legacy
 tests, since most legacy tests serve limited utility.
 
 As an example we'll migrate the old
-`quick/se/00.hello/arm/linux/simple-atomic-dummychecker` test. We'll refer to
-the gem5 root directory as simply ``/``. That is, the old and new tests
-directory would be ``/tests``.
+`quick/se/00.hello/arm/linux/simple-atomic-dummychecker` test. All paths assume
+the current working directory is the gem5 base path (i.e., .../gem5/).
 
 Here are the steps:
 
 1. Look in the directory the old test expects a ``test.py`` file to be located in.
 2. Move that file and copy it into the slightly different test location
-   ``/tests/gem5/se/00.hello``  and change the name to ``config.py``.
+   ``tests/gem5/se/00.hello``  and change the name to ``config.py``.
 3. Move the reference files to
-   ``/tests/gem5/se/00.hello/ARM/simple-atomic-dummychecker``
+   ``tests/gem5/se/00.hello/ARM/simple-atomic-dummychecker``
 
 4. Assuming that the additional config files which set up the old test are not
    ported, we need to do so.
 
    - To do this copy over the old config
-     ``/tests/configs/simple-atomic-dummychecker.py`` to
-     ``/tests/legacy-configs/simple-atomic-dummychecker.py`` (We know this is
+     ``tests/configs/simple-atomic-dummychecker.py`` to
+     ``tests/legacy-configs/simple-atomic-dummychecker.py`` (We know this is
      the legacy config name because it is the final name of the old test path.)
 
 5. Create a ``test-hello.py`` file in ``quick/se/00.hello/`` and use
@@ -51,10 +50,10 @@ Here are the steps:
     hello_program = TestProgram('hello', 'ARM', 'linux')
 
     # This is the path of legacy-configs that share the same base config.
-    dummychecker =joinpath(config.base_dir,
-    'tests',
-    'legacy-configs',
-    'simple-atomic-dummychecker.py')
+    dummychecker = joinpath(config.base_dir,
+                            'tests',
+                            'legacy-configs',
+                            'simple-atomic-dummychecker.py')
 
     gem5_verify_config(
             name='test_hello',
