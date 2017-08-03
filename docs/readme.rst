@@ -200,6 +200,7 @@ Again with a failure in one of the output checkers:
 -  TestList `(Marked fail_fast)`
     -  Gem5 Run `(PASS)`
     -  TestList `(Not marked fail_fast)`
+    
        -  TestStdout `(FAILS)`
        -  TestStderr `(Still will be run.)`
 
