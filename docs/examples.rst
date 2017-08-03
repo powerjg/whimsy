@@ -169,9 +169,9 @@ checks it's return code.
                 # We can fail by raising an exception
                 raise e 
 
-            elif e.returncode != 2:
+            elif e.returncode == 2:
                 # We can also fail manually with the fail method.
-                test.fail("Return code wasn't 2")
+                test.fail("Return code was 2?!")
 
         # Returncode was 0
         # When we return this test will be marked as passed.
