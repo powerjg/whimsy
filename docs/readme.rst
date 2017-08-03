@@ -225,14 +225,14 @@ So
 
 .. code:: bash
     
-    /tests/speed/system-mode/test-name/test.py
+    tests/speed/system-mode/test-name/test.py
 
 changes to
 
 .. code:: bash
     
-    /tests/gem5/test-name/config.py
-    /tests/gem5/test-name/test.py
+    tests/gem5/test-name/config.py
+    tests/gem5/test-name/test.py
 
 Where test.py will more than likely contain
 a :func:`whimsy.gem5.suite.gem5_verify_config` function call.  Reference files
@@ -240,7 +240,7 @@ will be placed in the same directory they already are in. The only other
 difference will be that all ISA names should be capitalized. 
 
 Also as you might have noticed above, the root of all tests is now
-``/tests/gem5`` with no specification being given on the speed of the tests by
+``tests/gem5`` with no specification being given on the speed of the tests by
 path name. This can now be done with tags. Reference files path names have also
 been trimmed a tiny bit.
 
@@ -257,9 +257,9 @@ these test-programs each time rather than storing binaries in the repo.
 
 **Location of the Framework**
 
-Finally, I would suggest that this framework be placed in the ``/ext``
+Finally, I would suggest that this framework be placed in the ``ext``
 directory. The gem5 helpers (under ``whimsy/gem5`` in this repo) could be
-placed directly in the ``/tests`` dir. I would expect there should not be too
+placed directly in the ``tests`` dir. I would expect there should not be too
 many changes made to this framework once it is solidified. However, I would
 hope that more gem5 specific ``Fixture`` and ``TestCase`` types are created, so
 the tests dir might fit that more lively update pattern.
